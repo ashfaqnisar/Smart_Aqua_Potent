@@ -10,8 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".LoginActivity"
-            android:label="Login">
+            android:name=".LogoActivity"
+            android:theme="@style/NoAppBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,11 +19,26 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".LoginActivity"
+            android:label="Login" />
+        <activity
             android:name=".RegisterActivity"
             android:label="Register" />
         <activity
-            android:name=".LogoActivity"
-            android:theme="@style/NoAppBar"></activity>
+            android:name=".user_activities.UserMenuActivity"
+            android:label="Menu" />
+        <activity
+            android:name=".user_activities.UserProfileSettingsActivity"
+            android:label="Profile Settings" />
+        <activity
+            android:name=".user_activities.UserSettingsActivity"
+            android:label="Settings" />
+        <activity android:name=".staff_activities.StaffMenuActivity" />
+        <activity android:name=".staff_activities.StaffProfileSettingsActivity" />
+        <activity android:name=".staff_activities.StaffSettingsActivity" />
+        <activity android:name=".admin_activities.AdminMenuActivity" />
+        <activity android:name=".admin_activities.AdminProfileSettingsActivity" />
+        <activity android:name=".admin_activities.AdminSettingsActivity"></activity>
     </application>
 
 </manifest>

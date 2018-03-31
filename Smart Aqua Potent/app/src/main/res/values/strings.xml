@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Smart Aqua Potent</string>
+    <string name="action_settings">Profile_Details</string>
+    <string name="menu_settings">Settings</string>
 </resources>
