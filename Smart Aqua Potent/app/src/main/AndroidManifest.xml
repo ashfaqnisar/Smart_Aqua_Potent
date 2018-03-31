@@ -20,10 +20,12 @@
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:label="Login" />
+            android:label="Login"
+            android:theme="@style/NoAppBar" />
         <activity
             android:name=".RegisterActivity"
-            android:label="Register" />
+            android:label="Register"
+            android:theme="@style/NoAppBar" />
         <activity
             android:name=".user_activities.UserMenuActivity"
             android:label="Menu" />
@@ -33,12 +35,27 @@
         <activity
             android:name=".user_activities.UserSettingsActivity"
             android:label="Settings" />
-        <activity android:name=".staff_activities.StaffMenuActivity" />
-        <activity android:name=".staff_activities.StaffProfileSettingsActivity" />
-        <activity android:name=".staff_activities.StaffSettingsActivity" />
-        <activity android:name=".admin_activities.AdminMenuActivity" />
-        <activity android:name=".admin_activities.AdminProfileSettingsActivity" />
-        <activity android:name=".admin_activities.AdminSettingsActivity"></activity>
+        <activity
+            android:name=".staff_activities.StaffMenuActivity"
+            android:label="Staff Menu" />
+        <activity
+            android:name=".staff_activities.StaffProfileSettingsActivity"
+            android:label="Profile Settings" />
+        <activity
+            android:name=".staff_activities.StaffSettingsActivity"
+            android:label="Staff Settings" />
+        <activity
+            android:name=".admin_activities.AdminMenuActivity"
+            android:label="Admin Menu" />
+        <activity
+            android:name=".admin_activities.AdminProfileSettingsActivity"
+            android:label="Profile Settings" />
+        <activity
+            android:name=".admin_activities.AdminSettingsActivity"
+            android:label="Admin Settings" />
+        <activity
+            android:name=".StaffLoginActivity"
+            android:theme="@style/NoAppBar" />
     </application>
 
 </manifest>

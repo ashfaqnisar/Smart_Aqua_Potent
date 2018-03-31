@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:paddingHorizontal="16dp"
     android:paddingVertical="16dp"
-    tools:context=".LoginActivity">
+    tools:context=".StaffLoginActivity">
 
     <ImageView
         android:layout_width="match_parent"
@@ -36,28 +36,28 @@
         android:id="@+id/id_login_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-        android:onClick="loginFunction"
+        android:layout_marginBottom="20dp"
         android:background="@color/primaryColor"
+        android:onClick="staffLoginFunction"
         android:text="Login"
         android:textColor="@color/primaryTextColor" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
         android:gravity="center"
-        android:layout_marginBottom="15dp"
-        android:onClick="openRegisterPage"
-        android:text="No Account Yet? Create One"
+        android:text="Are You A User?"
         android:textColor="@color/blackTextColor"
         android:textSize="16sp" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:onClick="openLoginPage"
+        android:text="User Login"
         android:textColor="@color/colorAccent"
-        android:onClick="openStaffLoginPage"
-        android:text="Staff Login"
         android:textSize="18sp" />
 
 

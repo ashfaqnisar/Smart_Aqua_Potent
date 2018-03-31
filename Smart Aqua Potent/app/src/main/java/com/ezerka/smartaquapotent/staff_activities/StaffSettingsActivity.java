@@ -10,6 +10,6 @@ public class StaffSettingsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_settings2);
+        setContentView(R.layout.activity_staff_settings);
     }
 }

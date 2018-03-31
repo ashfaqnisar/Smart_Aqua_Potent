@@ -10,8 +10,10 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp" />
+        android:layout_height="200dp"
+        android:layout_marginBottom="10dp"
+        android:contentDescription="Logo of the Application"
+        android:src="@drawable/logo" />
 
     <EditText
         android:id="@+id/id_register_can"
@@ -19,6 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:hint="CAN NO"
+        android:inputType="number"
         android:textColor="@color/blackTextColor" />
 
     <EditText
@@ -26,45 +29,44 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:hint="Email ID" />
+        android:hint="Email ID"
+        android:inputType="textEmailAddress" />
 
     <EditText
         android:id="@+id/id_register_pass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:hint="Password" />
+        android:hint="Password"
+        android:inputType="textPassword" />
 
     <EditText
         android:id="@+id/id_register_re-pass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:hint="Re-Password" />
+        android:hint="Re-Password"
+        android:inputType="textPassword" />
 
     <Button
-        android:id="@+id/id_login_button"
+        android:id="@+id/id_register_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
         android:onClick="registerFunction"
-        android:text="Register" />
+        android:background="@color/primaryColor"
+        android:text="Register"
+        android:textColor="@color/primaryTextColor" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:gravity="center"
-        android:text="Already Have an Account" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
         android:onClick="openLoginPage"
-        android:text="Login"
-        android:textColor="@color/colorAccent"
-        android:textSize="18sp" />
+        android:text="Already Have an Account ?"
+        android:textColor="@color/blackTextColor"
+        android:textSize="16sp" />
 
 
 </LinearLayout>
