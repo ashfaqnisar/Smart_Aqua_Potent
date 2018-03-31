@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:paddingHorizontal="16dp"
     android:paddingVertical="16dp"
-    tools:context=".LoginActivity">
+    tools:context=".RegisterActivity">
 
     <ImageView
         android:layout_width="match_parent"
@@ -14,39 +14,55 @@
         android:layout_marginBottom="30dp" />
 
     <EditText
-        android:id="@+id/id_login_email"
+        android:id="@+id/id_register_can"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:hint="CAN NO"
+        android:textColor="" />
+
+    <EditText
+        android:id="@+id/id_register_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:hint="Email ID" />
 
     <EditText
-        android:id="@+id/id_login_pass"
+        android:id="@+id/id_register_pass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:hint="Password" />
+
+    <EditText
+        android:id="@+id/id_register_re-pass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:hint="Re-Password" />
 
     <Button
         android:id="@+id/id_login_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
-        android:onClick="loginFunction"
-        android:text="Login" />
+        android:onClick="registerFunction"
+        android:text="Register" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:gravity="center"
-        android:text="New to the App" />
+        android:text="Already Have an Account" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:onClick="openRegisterPage"
-        android:text="Register"
+        android:onClick="openLoginPage"
+        android:text="Login"
         android:textColor="@color/colorAccent"
         android:textSize="18sp" />
 

@@ -1,20 +1,20 @@
 package com.ezerka.smartaquapotent;
 
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.View;
 
-public class LoginActivity extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_register);
     }
 
-    public void loginFunction(View view) {
+    public void registerFunction(View view) {
     }
 
-    public void openRegisterPage(View view) {
+    public void openLoginPage(View view) {
     }
 }
