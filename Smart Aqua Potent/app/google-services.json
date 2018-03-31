@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "476692958538",
+    "firebase_url": "https://smart-aqua-potent.firebaseio.com",
+    "project_id": "smart-aqua-potent",
+    "storage_bucket": "smart-aqua-potent.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:476692958538:android:91795f9be92bedd1",
+        "android_client_info": {
+          "package_name": "com.ezerka.smartaquapotent"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "476692958538-9lus85h202qqs8an00jj6jquv4spt2f7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKBC8g3e_6R6q5H-219HchhFtgZp6R27I"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
