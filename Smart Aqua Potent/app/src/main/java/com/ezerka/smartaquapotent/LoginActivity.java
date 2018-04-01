@@ -3,6 +3,7 @@ package com.ezerka.smartaquapotent;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.util.Patterns;
@@ -12,6 +13,12 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.ezerka.smartaquapotent.user_activities.UserMenuActivity;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -22,11 +29,16 @@ public class LoginActivity extends AppCompatActivity {
     private EditText mLoginPassId;
     private Button mLoginButtonId;
 
+    private ProgressDialog progressDialog = null;
+
+    private FirebaseAuth.AuthStateListener mAuthStateListener;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         initView();
+        firebaseSetupAuth();
     }
 
     private void initView() {
@@ -35,14 +47,6 @@ public class LoginActivity extends AppCompatActivity {
         mLoginButtonId = (Button) findViewById(R.id.id_login_button);
     }
 
-
-    public void openRegisterPage(View view) {
-
-        Intent intent_register = new Intent(this, RegisterActivity.class);
-        startActivity(intent_register);
-        finish();
-        overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
-    }
 
     public void loginFunction(View view) {
         login();
@@ -53,7 +57,7 @@ public class LoginActivity extends AppCompatActivity {
         Log.d(TAG, "Login");
 
         if (!validate()) {
-            onLoginFailed();
+            return;
         }
 
         mLoginButtonId.setEnabled(false);
@@ -64,20 +68,37 @@ public class LoginActivity extends AppCompatActivity {
         pd.show();
         pd.setCancelable(false);
 
-        String email = mLoginEmailId.getText().toString();
-        String password = mLoginPassId.getText().toString();
-
         // TODO: I am going to write the logic here for the Connection.
 
         new android.os.Handler().postDelayed(
                 new Runnable() {
                     public void run() {
                         // On complete call either onLoginSuccess or onLoginFailed
-                        onUserLoginSuccess();
+                        loginTheUser();
                         // onLoginFailed();
                         pd.dismiss();
                     }
-                }, 3000);
+                }, 6000);
+    }
+
+    public void loginTheUser() {
+        String email = mLoginEmailId.getText().toString();
+        String password = mLoginPassId.getText().toString();
+
+        FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                Log.d(TAG, "Logged In");
+                openUserLoginPage();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.d(TAG, "Not Logged In");
+                Toast.makeText(LoginActivity.this, "Authentication Failed", Toast.LENGTH_SHORT).show();
+                onLoginFailed();
+            }
+        });
     }
 
 
@@ -99,12 +120,10 @@ public class LoginActivity extends AppCompatActivity {
         moveTaskToBack(true);
     }
 
-    public void onUserLoginSuccess() {
+    public void openUserLoginPage() {
         startActivity(new Intent(this, UserMenuActivity.class));
-
-        mLoginButtonId.setEnabled(true);
-
         finish();
+
     }
 
     public void onLoginFailed() {
@@ -140,5 +159,42 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(staffLogin);
         finish();
         overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+    }
+
+    public void openRegisterPage(View view) {
+
+        Intent intent_register = new Intent(this, RegisterActivity.class);
+        startActivity(intent_register);
+        finish();
+        overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+    }
+
+    private void firebaseSetupAuth() {
+        mAuthStateListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    Log.d(TAG, "Signed In");
+                } else {
+                    Log.d(TAG, "Signed Out");
+                }
+            }
+        };
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FirebaseAuth.getInstance().addAuthStateListener(mAuthStateListener);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (mAuthStateListener != null) {
+            FirebaseAuth.getInstance().removeAuthStateListener(mAuthStateListener);
+        }
     }
 }

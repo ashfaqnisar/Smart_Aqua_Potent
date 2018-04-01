@@ -56,6 +56,7 @@
         <activity
             android:name=".StaffLoginActivity"
             android:theme="@style/NoAppBar" />
+        <activity android:name=".SignUpActivity"></activity>
     </application>
 
 </manifest>
